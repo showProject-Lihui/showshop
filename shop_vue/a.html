@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="i">d</div>
+  <script>
+
+
+String.prototype.asCurrency = function() {
+ var f1 = this;
+ var f2 = (Math.round((f1-0) * 100)) / 100;
+ f2 = Math.floor(f2) == f2 ? f2 : (Math.floor(f2 * 10) == f2 * 10) ? f2 + '0' : f2;
+ f2 = String(f2);
+ r = /(\d+)(\d{3})/;
+ fs = String(f2);
+ while (r.test(f2)) {
+       f2 = f2.replace(r, '$1' + ',' + '$2');
+ }
+ return (f2); // TODO 没考虑金额为负的情况
+}
+    
+
+  </script>
+</body>
+</html>
